@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday, Muntaha Ali!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fff6fb;--accent:#ff6fa3;--accent2:#ffd36f;--card:#ffffff;}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,sans-serif;background:linear-gradient(135deg,var(--bg),#f0f9ff);color:#333}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .card{width:960px;max-width:96vw;background:var(--card);border-radius:20px;box-shadow:0 12px 40px rgba(50,50,93,0.08);overflow:hidden;display:grid;grid-template-columns:1fr 420px}
+    @media(max-width:880px){.card{grid-template-columns:1fr;padding-bottom:1rem}.right{display:none}}
+    .left{padding:3.2rem 2.5rem;position:relative}
+    .headline{display:flex;align-items:center;gap:1rem}
+    .badge{background:linear-gradient(90deg,var(--accent),#ff8ac6);color:white;padding:0.4rem 0.9rem;border-radius:999px;font-weight:700;font-size:0.95rem}
+    h1{font-size:2.6rem;margin:0 0 0.6rem 0;line-height:1.02}
+    h2{font-family:Cookie,serif;font-size:2.8rem;margin:0;color:var(--accent)}
+    p.lead{margin:0.5rem 0 1.4rem 0;color:#5b5b6b}
+    .message{background:linear-gradient(180deg,rgba(255,111,156,0.06),rgba(255,211,111,0.03));border-radius:14px;padding:1.1rem;margin:1rem 0;}
+    .message p{margin:0;font-size:1.05rem}
+    .actions{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{padding:0.8rem 1.2rem;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff8ac6);color:white}
+    .btn-ghost{background:transparent;border:2px solid #f2cbe0;color:var(--accent);}
+    .small-note{margin-top:0.8rem;color:#7a6f7b;font-size:0.95rem}
+    .right{background:linear-gradient(180deg,#fff, #fff7fb);padding:2.2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+    .cake{width:240px;height:240px;border-radius:20px;background:linear-gradient(180deg,#fff6f9,#ffeef6);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 10px 30px rgba(255,111,156,0.12)}
+    .cake .tiers{position:relative;width:170px}
+    .tier{border-radius:12px;padding:10px 18px;margin:8px 0;text-align:center;color:#6b2445}
+    .tier.small{background:#ffdce8}
+    .tier.big{background:#ffe9f2;font-weight:700}
+    .candles{position:absolute;top:-26px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+    .c{width:6px;height:26px;border-radius:8px;background:#ff8ac6;position:relative}
+    .flame{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:8px;height:12px;border-radius:50%;background:linear-gradient(#ffd66b,#ff7a5b)}
+    .hearts{position:absolute;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px}
+    .heart{width:36px;height:36px;background:var(--accent);clip-path:polygon(50% 0, 61% 10%, 75% 10%, 88% 25%, 100% 35%, 93% 55%, 75% 75%, 50% 95%, 25% 75%, 7% 55%, 0 35%, 12% 25%, 25% 10%, 39% 10%);opacity:0.9;transform-origin:center;animation:float 4s ease-in-out infinite}
+    .heart.s{width:22px;height:22px;animation-duration:3.6s}
+    @keyframes float{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-10px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
+    #confetti{position:absolute;left:0;top:0;z-index:2;pointer-events:none}
+    footer{padding:1rem 2rem;background:transparent;border-top:1px dashed #f1e6ef;text-align:center;color:#7a6f7b;font-size:0.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <canvas id="confetti"></canvas>
+      <div class="left">
+        <div class="headline"><div class="badge">Special Day</div></div>
+        <h1>Happy Birthday</h1>
+        <h2>Muntaha Ali 🎉</h2>
+        <p class="lead">Wishing you a day filled with love, laughter, and all things cute — just like you!</p>
+        <div class="message"><p>Dear Muntaha,</p><p style="margin-top:0.6rem">May your birthday sparkle with joy and bring you endless blessings.</p><p style="margin-top:0.6rem;font-weight:700">With love,<br>— Your well-wishers</p></div>
+        <div class="actions">
+          <button class="btn btn-primary" id="playBtn">Play 🎶</button>
+          <button class="btn btn-ghost" id="downloadBtn">Download as image</button>
+          <a class="btn" id="shareBtn" role="button">Copy page link</a>
+        </div>
+        <p class="small-note">Tip: Open this page in full-screen and click <strong>Play</strong> for music and confetti!</p>
+        <footer>Made with ❤️ for Muntaha Ali</footer>
+      </div>
+      <div class="right">
+        <div class="cake" aria-hidden="true">
+          <div class="candles"><div class="c"><div class="flame"></div></div><div class="c"><div class="flame"></div></div><div class="c"><div class="flame"></div></div></div>
+          <div class="tiers"><div class="tier small">Wishes</div><div class="tier big">Love & Joy</div><div class="tier small">Happiness</div></div>
+        </div>
+        <div class="hearts" aria-hidden="true"><div class="heart"></div><div class="heart s"></div><div class="heart"></div></div>
+        <p style="text-align:center;margin:0;max-width:260px">You're invited to celebrate Muntaha today — share this page with friends!</p>
+      </div>
+    </div>
+  </div>
+  <audio id="happyAudio" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_1b9b5d5a12.mp3?filename=happy-birthday-122586.mp3"></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    const canvas=document.getElementById('confetti');const ctx=canvas.getContext('2d');let W,H,pieces=[];function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}window.addEventListener('resize',resize);resize();function random(a,b){return Math.random()*(b-a)+a}function makePiece(){return{x:random(0,W),y:random(-50,-10),vx:random(-.8,.8),vy:random(1,4),size:Math.floor(random(6,14)),color:['#ff6fa3','#ffd36f','#ffd6ed','#ffd7a6'][Math.floor(random(0,4))],rot:random(0,360),dr:random(-6,6)}}for(let i=0;i<120;i++)pieces.push(makePiece());function draw(){ctx.clearRect(0,0,W,H);for(let p of pieces){p.x+=p.vx;p.y+=p.vy;p.rot+=p.dr;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);ctx.fillStyle=p.color;ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size);ctx.restore();if(p.y>H+20){Object.assign(p,makePiece());p.y=-20}}requestAnimationFrame(draw)}draw();const audio=document.getElementById('happyAudio');document.getElementById('playBtn').addEventListener('click',()=>{audio.currentTime=0;audio.play();for(let i=0;i<60;i++)pieces.push(makePiece())});document.getElementById('downloadBtn').addEventListener('click',()=>{const card=document.querySelector('.card');html2canvas(card,{scale:2}).then(canvas=>{const link=document.createElement('a');link.download='happy-birthday-muntaha-ali.png';link.href=canvas.toDataURL('image/png');link.click()})});document.getElementById('shareBtn').addEventListener('click',async()=>{const url=location.href;try{await navigator.clipboard.writeText(url);alert('Page link copied to clipboard!')}catch(e){prompt('Copy this link',url)}});
+  </script>
+</body>
+</html>
